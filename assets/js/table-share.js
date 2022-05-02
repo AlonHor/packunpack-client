@@ -1,0 +1,66 @@
+const shareButton = document.getElementById('share-button');
+const shareLink = document.getElementById('share-link-value');
+const shareDiv = document.getElementById('share-div');
+const copyButton = document.getElementById('copy-button');
+
+shareButton.addEventListener('click', () => {
+  fetch(`${server}/sid/${sid}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((res) => {
+      if (res.status === 200) {
+        return res.json();
+      } else {
+        throw new Error('Failed to login');
+      }
+    })
+    .then((res) => {
+      const id = res.id;
+      const tableData = saveTableData();
+      startLoader();
+      if (id) {
+        fetch(`${server}/share/${id}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            sid: sid,
+            table: tableData,
+          }),
+        })
+          .then((res) => {
+            stopLoader();
+            if (res.status === 200) {
+              return res.json();
+            } else {
+              throw new Error('Failed to login');
+            }
+          })
+          .then((res) => {
+            if (res.id) {
+              shareLink.innerHTML = `${window.location.origin}/share/?id=${res.id}`;
+              shareDiv.hidden = false;
+              copyButton.addEventListener('click', () => {
+                // copy innerHTML of shareLink to clipboard
+                const el = document.createElement('textarea');
+                el.value = shareLink.innerHTML;
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
+                copyButton.innerHTML = 'Copied';
+              });
+            } else {
+              throw new Error('Failed to login');
+            }
+          })
+          .catch((err) => {
+            alert(err);
+          });
+      }
+    });
+});

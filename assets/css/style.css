@@ -1,0 +1,28 @@
+.spinner-border {
+  vertical-align: -0.75em !important;
+}
+
+.share {
+  margin-right: 0.5em;
+}
+
+.share-div,
+.delta-div {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border: 2px solid #e0e0e0;
+  color: black;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.copy {
+  background-color: #00497a !important;
+  border-color: #0063a5 !important;
+}
+
+.copy:hover {
+  background-color: #0063a5 !important;
+  border-color: #00497a !important;
+}

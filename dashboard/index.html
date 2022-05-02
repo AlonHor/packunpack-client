@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="PackUnpack - The #1 (and only) app for tracking bag changes and delta subjects."
+    />
+    <meta name="author" content="Alon" />
+
+    <!-- links -->
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- fontawesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/solid.min.js"
+      integrity="sha512-C92U8X5fKxCN7C6A/AttDsqXQiB7gxwvg/9JCxcqR6KV+F0nvMBwL4wuQc+PwCfQGfazIe7Cm5g0VaHaoZ/BOQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- own scripts -->
+    <script src="../assets/js/server.js"></script>
+
+    <!-- title -->
+    <title>PackUnpack</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <br />
+          <h1>Your Schedule Table</h1>
+          <br />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <!-- type selector -->
+          <!-- <div class="form-group">
+            <label for="type">Select Type of Schedule Table</label>
+            <select class="form-control" id="type" name="type">
+              <option value="monday">Monday - Friday</option>
+              <option value="sunday">Sunday - Friday</option>
+            </select>
+          </div>
+          <br /> -->
+          <table class="table table-bordered table-hover" id="table">
+            <thead>
+              <tr>
+                <th scope="col" id="optionalSunday1" hidden>Sunday</th>
+                <th scope="col">Monday</th>
+                <th scope="col">Tuesday</th>
+                <th scope="col">Wednesday</th>
+                <th scope="col">Thursday</th>
+                <th scope="col">Friday</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="optionalSunday2" hidden>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="sunday1"
+                    placeholder="Sunday 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="monday1"
+                    placeholder="Monday 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="tuesday1"
+                    placeholder="Tuesday 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="wednesday1"
+                    placeholder="Wednesday 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="thursday1"
+                    placeholder="Thursday 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="friday1"
+                    placeholder="Friday 1"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td id="optionalSunday3" hidden>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="sunday2"
+                    placeholder="Sunday 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="monday2"
+                    placeholder="Monday 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="tuesday2"
+                    placeholder="Tuesday 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="wednesday2"
+                    placeholder="Wednesday 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="thursday2"
+                    placeholder="Thursday 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="friday2"
+                    placeholder="Friday 2"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td id="optionalSunday4" hidden>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="sunday3"
+                    placeholder="Sunday 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="monday3"
+                    placeholder="Monday 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="tuesday3"
+                    placeholder="Tuesday 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="wednesday3"
+                    placeholder="Wednesday 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="thursday3"
+                    placeholder="Thursday 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="friday3"
+                    placeholder="Friday 3"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td id="optionalSunday5" hidden>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="sunday4"
+                    placeholder="Sunday 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="monday4"
+                    placeholder="Monday 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="tuesday4"
+                    placeholder="Tuesday 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="wednesday4"
+                    placeholder="Wednesday 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="thursday4"
+                    placeholder="Thursday 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="friday4"
+                    placeholder="Friday 4"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td id="optionalSunday6" hidden>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="sunday5"
+                    placeholder="Sunday 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="monday5"
+                    placeholder="Monday 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="tuesday5"
+                    placeholder="Tuesday 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="wednesday5"
+                    placeholder="Wednesday 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="thursday5"
+                    placeholder="Thursday 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="friday5"
+                    placeholder="Friday 5"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td id="optionalSunday7" hidden>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="sunday6"
+                    placeholder="Sunday 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="monday6"
+                    placeholder="Monday 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="tuesday6"
+                    placeholder="Tuesday 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="wednesday6"
+                    placeholder="Wednesday 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="thursday6"
+                    placeholder="Thursday 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="friday6"
+                    placeholder="Friday 6"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td id="optionalSunday8" hidden>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="sunday7"
+                    placeholder="Sunday 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="monday7"
+                    placeholder="Monday 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="tuesday7"
+                    placeholder="Tuesday 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="wednesday7"
+                    placeholder="Wednesday 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="thursday7"
+                    placeholder="Thursday 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="friday7"
+                    placeholder="Friday 7"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td id="optionalSunday9" hidden>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="sunday8"
+                    placeholder="Sunday 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="monday8"
+                    placeholder="Monday 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="tuesday8"
+                    placeholder="Tuesday 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="wednesday8"
+                    placeholder="Wednesday 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="thursday8"
+                    placeholder="Thursday 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="friday8"
+                    placeholder="Friday 8"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td id="optionalSunday10" hidden>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="sunday9"
+                    placeholder="Sunday 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="monday9"
+                    placeholder="Monday 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="tuesday9"
+                    placeholder="Tuesday 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="wednesday9"
+                    placeholder="Wednesday 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="thursday9"
+                    placeholder="Thursday 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="friday9"
+                    placeholder="Friday 9"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td id="optionalSunday11" hidden>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="sunday10"
+                    placeholder="Sunday 10"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="monday10"
+                    placeholder="Monday 10"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="tuesday10"
+                    placeholder="Tuesday 10"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="wednesday10"
+                    placeholder="Wednesday 10"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="thursday10"
+                    placeholder="Thursday 10"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="friday10"
+                    placeholder="Friday 10"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button type="button" class="btn btn-success" id="save-button">
+            Save
+          </button>
+          <!-- share button -->
+          <button type="button" class="btn btn-primary share" id="share-button">
+            Share
+          </button>
+          <div class="spinner-border" role="status" id="loader" hidden>
+            <span class="sr-only">Loading...</span>
+          </div>
+          <!-- share link -->
+          <div class="share-div" id="share-div" hidden>
+            <span id="share-link-text">Share link:</span><br />
+            <span id="share-link-value"></span><br /><br />
+            <!-- copy button -->
+            <button type="button" class="btn btn-primary copy" id="copy-button">
+              Copy
+            </button>
+          </div>
+          <!-- delta -->
+          <div class="delta-div" id="delta-div">
+            <span id="remove-text">Remove from bag:</span><br />
+            <span id="remove-value"></span><br /><br />
+            <span id="add-text">Add to bag:</span><br />
+            <span id="add-value"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <!-- own scripts -->
+    <!-- <script src="../assets/js/type-selector.js"></script> -->
+    <script src="../assets/js/table-saver.js"></script>
+    <script src="../assets/js/table-filler.js"></script>
+    <script src="../assets/js/table-share.js"></script>
+    <script src="../assets/js/generate-delta.js"></script>
+  </body>
+</html>
