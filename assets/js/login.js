@@ -7,7 +7,7 @@ password.addEventListener('keyup', (e) => {
     e.preventDefault();
   }
 });
-registerForm.addEventListener('submit', (e) => {
+loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const usernameValue = username.value;
   const passwordValue = password.value;
