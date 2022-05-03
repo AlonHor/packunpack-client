@@ -61,7 +61,14 @@ fetch(`${server}/sid/${sid}`, {
         });
       }
     } else {
-      throw new Error('Failed to login');
+      if (res.message) {
+        if (res.message == 'Incorrect sid') {
+          localStorage.removeItem('sid');
+          window.location.href = '../';
+        } else {
+          throw new Error('Failed to login: ' + err.message);
+        }
+      }
     }
   })
   .catch((err) => {
