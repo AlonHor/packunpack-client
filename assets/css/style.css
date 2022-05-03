@@ -26,3 +26,10 @@
   background-color: #0063a5 !important;
   border-color: #00497a !important;
 }
+
+.logout {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+}
