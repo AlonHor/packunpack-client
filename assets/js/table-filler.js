@@ -60,6 +60,7 @@ fetch(`${server}/sid/${sid}`, {
           });
         });
       }
+      generateDelta();
     } else {
       if (res.message) {
         if (res.message == 'Incorrect sid') {
