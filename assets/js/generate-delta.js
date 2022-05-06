@@ -17,10 +17,10 @@ function generateDelta() {
 
   if (todayDay === 5) {
     // if today is friday
-    tomorrowDay = 1;
-  } else if (todayDay === 6) {
+    tomorrowDay = 0;
+  } else if (todayDay === 4) {
     // if today is saturday
-    tomorrowDay = 1;
+    tomorrowDay = 0;
   }
 
   let week = {};
