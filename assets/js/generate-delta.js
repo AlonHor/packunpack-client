@@ -15,12 +15,12 @@ function generateDelta() {
     tomorrowDay = 6;
   }
 
-  if (todayDay === 5) {
-    // if today is friday
+  if (todayDay === 5 || todayDay === 6) {
+    // if today is saturday or sunday
     todayDay = 4;
     tomorrowDay = 0;
   } else if (todayDay === 4) {
-    // if today is saturday
+    // if today is friday
     tomorrowDay = 0;
   }
 
