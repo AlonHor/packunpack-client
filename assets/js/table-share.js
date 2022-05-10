@@ -4,6 +4,10 @@ const shareDiv = document.getElementById('share-div');
 const copyButton = document.getElementById('copy-button');
 
 shareButton.addEventListener('click', () => {
+  let type = 'monday';
+  if (document.getElementById('sunday-checkbox').checked) {
+    type = 'sunday';
+  }
   fetch(`${server}/sid/${sid}`, {
     method: 'POST',
     headers: {
@@ -30,6 +34,7 @@ shareButton.addEventListener('click', () => {
           body: JSON.stringify({
             sid: sid,
             table: tableData,
+            type: type,
           }),
         })
           .then((res) => {

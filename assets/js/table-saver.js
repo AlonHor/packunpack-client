@@ -1,14 +1,23 @@
-// const sid = localStorage.getItem('sid');
 const saveButton = document.getElementById('save-button');
 
 function saveTableData() {
-  const theNamesOfTheDaysOfTheWeek = [
+  let theNamesOfTheDaysOfTheWeek = [
     'monday',
     'tuesday',
     'wednesday',
     'thursday',
     'friday',
   ];
+  if (document.getElementById('sunday-checkbox').checked) {
+    theNamesOfTheDaysOfTheWeek = [
+      'sunday',
+      'monday',
+      'tuesday',
+      'wednesday',
+      'thursday',
+      'friday',
+    ];
+  }
   // run through the days of the week
   const tableData = [];
   theNamesOfTheDaysOfTheWeek.forEach((dayOfTheWeek) => {

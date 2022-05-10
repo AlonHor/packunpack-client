@@ -19,7 +19,14 @@ if (tableId) {
     })
     .then((res) => {
       if (res.table) {
-        localStorage.setItem('prefiller', JSON.stringify(res.table));
+        let type = 'monday';
+        if (res.table.length === 6) {
+          type = 'sunday';
+        }
+        localStorage.setItem(
+          'prefiller',
+          JSON.stringify({ table: res.table, type: type })
+        );
         if (sid) {
           window.location.href = '../dashboard';
         } else {

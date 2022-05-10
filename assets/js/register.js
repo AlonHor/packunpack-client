@@ -3,6 +3,7 @@ const registerForm = document.getElementById('register-form');
 const email = document.getElementById('email');
 const username = document.getElementById('username');
 const password = document.getElementById('password');
+const type = document.getElementById('type');
 password.addEventListener('keyup', (e) => {
   if (e.keyCode === 13) {
     e.preventDefault();
@@ -13,6 +14,7 @@ registerForm.addEventListener('submit', (e) => {
   const emailValue = email.value;
   const usernameValue = username.value;
   const passwordValue = password.value;
+  const typeValue = type.value;
   fetch(`${server}/register`, {
     method: 'POST',
     headers: {
@@ -22,6 +24,7 @@ registerForm.addEventListener('submit', (e) => {
       email: emailValue,
       username: usernameValue,
       password: passwordValue,
+      type: typeValue,
     }),
   })
     .then((res) => {

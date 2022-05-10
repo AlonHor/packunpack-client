@@ -1,6 +1,4 @@
-// fill in the html table with the data from the table
-
-const theNamesOfTheDaysOfTheWeek = [
+let theNamesOfTheDaysOfTheWeek = [
   'monday',
   'tuesday',
   'wednesday',
@@ -8,11 +6,37 @@ const theNamesOfTheDaysOfTheWeek = [
   'friday',
 ];
 
+document.querySelectorAll('input[type=text]').forEach((input) => {
+  input.value = '';
+});
+
 if (localStorage.getItem('prefiller')) {
   const prefiller = JSON.parse(localStorage.getItem('prefiller'));
   console.log(prefiller);
   localStorage.removeItem('prefiller');
-  prefiller.forEach((dayOfTheWeek, indexOfTheDayOfTheWeek) => {
+  const prefillerData = prefiller.table;
+  console.log(prefiller);
+  if (prefiller.type === 'sunday') {
+    dayCount = 6;
+    for (let i = 1; i <= 11; i += 1) {
+      const elem = document.getElementById(`optionalSunday${i}`);
+      elem.hidden = false;
+      dayCount = 6;
+      if (i > 2) {
+        elem.firstChild.value = '';
+      }
+    }
+    theNamesOfTheDaysOfTheWeek = [
+      'sunday',
+      'monday',
+      'tuesday',
+      'wednesday',
+      'thursday',
+      'friday',
+    ];
+    document.getElementById('sunday-checkbox').checked = true;
+  }
+  prefillerData.forEach((dayOfTheWeek, indexOfTheDayOfTheWeek) => {
     // for each day
     dayOfTheWeek.forEach((subject, indexOfTheSubject) => {
       // for each subject
@@ -45,6 +69,34 @@ fetch(`${server}/sid/${sid}`, {
     if (res.table) {
       tableData = res.table;
       if (tableData) {
+        if (res.type) {
+          if (res.type === 'sunday') {
+            dayCount = 6;
+            for (let i = 1; i <= 11; i += 1) {
+              const elem = document.getElementById(`optionalSunday${i}`);
+              elem.hidden = false;
+              dayCount = 6;
+              if (i > 2) {
+                elem.firstChild.value = '';
+              }
+            }
+            theNamesOfTheDaysOfTheWeek = [
+              'sunday',
+              'monday',
+              'tuesday',
+              'wednesday',
+              'thursday',
+              'friday',
+            ];
+            document.getElementById('sunday-checkbox').checked = true;
+          } else {
+            document.getElementById('sunday-checkbox').checked = false;
+            dayCount = 5;
+            for (let i = 1; i <= 11; i += 1) {
+              document.getElementById(`optionalSunday${i}`).hidden = true;
+            }
+          }
+        }
         // run through the days of the week
         tableData.forEach((dayOfTheWeek, indexOfTheDayOfTheWeek) => {
           // for each day
