@@ -18,6 +18,9 @@ function fillHw() {
         document.getElementById('hw-viewer').hidden = true;
         return;
       }
+      if (data[0].hw === undefined) {
+        delete data[0];
+      }
       document.getElementById('hw-viewer').hidden = false;
       document.getElementById('hw-viewer-value').innerHTML = '';
       document.getElementById('locker-value').innerHTML = '';
