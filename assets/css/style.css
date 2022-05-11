@@ -7,24 +7,47 @@
 }
 
 .share-div,
-.delta-div {
+.delta-div,
+.hw-div,
+.locker-div {
   margin-top: 1rem;
   margin-bottom: 1rem;
   background-color: #fff;
   border: 2px solid #e0e0e0;
+  width: 100%;
   color: black;
   padding: 1rem;
   border-radius: 0.5rem;
 }
 
-.copy {
+.btn-primary {
   background-color: #00497a !important;
   border-color: #0063a5 !important;
 }
 
-.copy:hover {
+.btn-primary:hover {
   background-color: #0063a5 !important;
   border-color: #00497a !important;
+}
+
+.btn-danger {
+  background-color: #7a001e !important;
+  border-color: #aa002b !important;
+}
+
+.btn-danger:hover {
+  background-color: #aa002b !important;
+  border-color: #7a001e !important;
+}
+
+.btn-success {
+  background-color: #006321 !important;
+  border-color: #009130 !important;
+}
+
+.btn-success:hover {
+  background-color: #009130 !important;
+  border-color: #006321 !important;
 }
 
 .logout {
@@ -32,4 +55,21 @@
   top: 0;
   right: 0;
   margin: 1rem;
+}
+
+/* dark theme */
+* {
+  background-color: #1c1c1c !important;
+  color: #fff !important;
+  border-color: #525252 !important;
+  /* box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1) !important; */
+  box-shadow: none !important;
+}
+
+.form-control {
+  background-color: #2e2e2e !important;
+}
+
+ul {
+  list-style-type: circle;
 }

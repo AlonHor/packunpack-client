@@ -313,16 +313,37 @@
             <span id="share-link-text">Share link:</span><br />
             <span id="share-link-value"></span><br /><br />
             <!-- copy button -->
-            <button type="button" class="btn btn-primary copy" id="copy-button">
+            <button type="button" class="btn btn-primary" id="copy-button">
               Copy
             </button>
           </div>
           <!-- delta -->
-          <div class="delta-div" id="delta-div">
+          <div class="delta-div" id="delta-div" hidden>
             <span id="remove-text">Remove from bag:</span><br />
             <span id="remove-value"></span><br /><br />
             <span id="add-text">Add to bag:</span><br />
             <span id="add-value"></span>
+          </div>
+          <!-- hw viewer -->
+          <div class="hw-div" id="hw-viewer" hidden>
+            <span>Homework:</span><br />
+            <ul id="hw-viewer-value"></ul>
+          </div>
+          <!-- locker viewer -->
+          <div class="locker-div" id="locker-viewer" hidden>
+            <span>Don't forget to remove:</span><br />
+            <ul id="locker-value"></ul>
+            <span>From the locker!</span>
+          </div>
+          <!-- hw -->
+          <div class="hw-div">
+            <span>Homework:</span><br />
+            <input class="form-control" id="hw-value" /><br />
+            <span>Due:</span><br />
+            <input class="form-control" id="hw-date" type="date" min="" /><br />
+            <button type="button" class="btn btn-primary" id="hw-button">
+              Save
+            </button>
           </div>
         </div>
       </div>
@@ -335,5 +356,8 @@
     <script src="../assets/js/table-share.js"></script>
     <script src="../assets/js/generate-delta.js"></script>
     <script src="../assets/js/logout.js"></script>
+    <script src="../assets/js/hw-saver.js"></script>
+    <script src="../assets/js/hw-filler.js"></script>
+    <script src="../assets/js/hw-remover.js"></script>
   </body>
 </html>

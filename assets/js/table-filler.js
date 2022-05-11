@@ -6,6 +6,56 @@ let theNamesOfTheDaysOfTheWeek = [
   'friday',
 ];
 
+let colors = [
+  '#6e2a2a',
+  '#00497a',
+  '#441769',
+  '#175669',
+  '#17694a',
+  '#69171e',
+  '#7e5a0c',
+  '#6c9213',
+];
+let colorsIndex = 0;
+let subjectsToColors = {};
+
+document.querySelectorAll('input').forEach((input) => {
+  if (input.id === 'hw-value' || input.id === 'hw-date') return;
+  colorTable(input);
+  input.addEventListener('keyup', () => {
+    colorTable(input);
+    Object.keys(subjectsToColors).forEach((subject) => {
+      let contains = false;
+      document.querySelectorAll('input').forEach((input) => {
+        if (input.value === subject) {
+          contains = true;
+        }
+      });
+      if (!contains) {
+        delete subjectsToColors[subject];
+      }
+    });
+  });
+});
+
+function colorTable(input) {
+  let subject = input.value;
+  if (subject === '') {
+    input.style = 'background-color: #2e2e2e !important';
+    return;
+  }
+  if (subject in subjectsToColors) {
+    input.style = `background-color: ${subjectsToColors[subject]} !important`;
+  } else {
+    if (colorsIndex === colors.length) {
+      colorsIndex = 0;
+    }
+    input.style = `background-color: ${colors[colorsIndex]} !important`;
+    subjectsToColors[subject] = colors[colorsIndex];
+    colorsIndex++;
+  }
+}
+
 document.querySelectorAll('input[type=text]').forEach((input) => {
   input.value = '';
 });
