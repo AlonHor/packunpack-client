@@ -16,24 +16,20 @@ function removeHw(hw) {
       throw new Error('Failed to remove homework');
     })
     .then((data) => {
-      if (data[0].hw) {
-        document.getElementById('hw-viewer').hidden = false;
-        document.getElementById('hw-viewer-value').innerHTML = '';
-        data.forEach((hw) => {
-          let name = hw.hw;
-          const constDate = new Date(hw.date);
-          let date = new Date(constDate.getTime());
-          day = date.getDate().toString();
-          month = (date.getMonth() + 1).toString();
-          year = date.getFullYear().toString();
-          document.getElementById(
-            'hw-viewer-value'
-          ).innerHTML += `<li>${name} - (${day}/${month}/${year})&nbsp;<a type="button" style="color:red !important;" onClick="removeHw('${name}')">X</a></li>`;
-        });
-        fillHw();
-      } else {
-        throw new Error('Failed to login');
-      }
+      document.getElementById('hw-viewer').hidden = false;
+      document.getElementById('hw-viewer-value').innerHTML = '';
+      data.forEach((hw) => {
+        let name = hw.hw;
+        const constDate = new Date(hw.date);
+        let date = new Date(constDate.getTime());
+        day = date.getDate().toString();
+        month = (date.getMonth() + 1).toString();
+        year = date.getFullYear().toString();
+        document.getElementById(
+          'hw-viewer-value'
+        ).innerHTML += `<li>${name} - (${day}/${month}/${year})&nbsp;<a type="button" style="color:red !important;" onClick="removeHw('${name}')">X</a></li>`;
+      });
+      fillHw();
     })
     .catch((err) => {
       alert(err);

@@ -19,6 +19,13 @@ let colors = [
 let colorsIndex = 0;
 let subjectsToColors = {};
 
+function reColorAll() {
+  document.querySelectorAll('input').forEach((input) => {
+    if (input.id === 'hw-value' || input.id === 'hw-date') return;
+    colorTable(input);
+  });
+}
+
 document.querySelectorAll('input').forEach((input) => {
   if (input.id === 'hw-value' || input.id === 'hw-date') return;
   colorTable(input);
@@ -96,6 +103,7 @@ if (localStorage.getItem('prefiller')) {
       document.getElementById(dayOfTheWeekConcactWithHour).value = subject;
     });
   });
+  reColorAll();
   document.getElementById('save-button').click();
 }
 
@@ -162,6 +170,7 @@ fetch(`${server}/sid/${sid}`, {
           });
         });
       }
+      reColorAll();
       generateDelta();
     } else {
       if (res.message) {
