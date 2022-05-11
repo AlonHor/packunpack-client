@@ -45,7 +45,7 @@ function generateDelta() {
     [...week[tomorrowDay]].filter((subject) => !week[todayDay].has(subject))
   );
 
-  if (addToBag.length === 0 && removeFromBag.length === 0) {
+  if (addToBag.size === 0 && removeFromBag.size === 0) {
     document.getElementById('delta-div').hidden = true;
   } else {
     document.getElementById('delta-div').hidden = false;
