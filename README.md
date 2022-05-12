@@ -2,10 +2,6 @@
 
 PackUnpack - The #1 (and only) app for tracking the delta when oragnizing bag, homework tracker, and locker reminder.
 
-```bash
-pip install foobar
-```
-
 ## Features
 
 #### The Table:
