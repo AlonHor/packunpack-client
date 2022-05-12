@@ -17,17 +17,17 @@ function generateDelta() {
 
   if (sunday) {
     // if today is friday or saturday
-    if (todayDay === 4 || todayDay === 5) {
+    if (todayDay === 5 || todayDay === 6) {
       // set today to friday
-      todayDay = 4;
+      todayDay = 5;
       // set tomorrow to sunday
       tomorrowDay = 0;
     }
   } else {
     // if today is friday, saturday or sunday
-    if (todayDay === 5 || todayDay === 6 || todayDay === 0) {
+    if (todayDay === 4 || todayDay === 5 || todayDay === 6) {
       // set today to friday
-      todayDay = 5;
+      todayDay = 4;
       // set tomorrow to monday
       tomorrowDay = 0;
     }
