@@ -25,9 +25,9 @@ function generateDelta() {
     }
   } else {
     // if today is friday, saturday or sunday
-    if (todayDay === 4 || todayDay === 5 || todayDay === 6) {
+    if (todayDay === 5 || todayDay === 6 || todayDay === 0) {
       // set today to friday
-      todayDay = 4;
+      todayDay = 5;
       // set tomorrow to monday
       tomorrowDay = 0;
     }
