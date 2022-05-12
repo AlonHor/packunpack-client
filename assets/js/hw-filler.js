@@ -13,8 +13,13 @@ function fillHw() {
       }
     })
     .then((user) => {
+      document.getElementById('locker-viewer').hidden = true;
+      document.getElementById('locker-value').innerHTML = '';
       const data = user.homework;
       if (data[0] === undefined) {
+        document.getElementById('hw-viewer').hidden = true;
+        return;
+      } else if (data[1] === undefined) {
         document.getElementById('hw-viewer').hidden = true;
         return;
       }

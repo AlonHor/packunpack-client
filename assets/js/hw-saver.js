@@ -1,11 +1,7 @@
 var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-var day = currentDate.getDate();
-var month = currentDate.getMonth() + 1;
-var year = currentDate.getFullYear();
-
-day = day.toString();
-month = month.toString();
-year = year.toString();
+var day = currentDate.getDate().toString();
+var month = (currentDate.getMonth() + 1).toString();
+var year = currentDate.getFullYear().toString();
 
 if (month.length === 1) {
   month = '0' + month;
@@ -46,21 +42,20 @@ document.getElementById('hw-button').addEventListener('click', (e) => {
       }
     })
     .then((data) => {
-      document.getElementById('hw-viewer').hidden = false;
-      document.getElementById('hw-viewer-value').innerHTML = '';
-      data.forEach((hw) => {
-        let name = hw.hw;
-        const constDate = new Date(hw.date);
-        let date = new Date(constDate.getTime());
-        day = date.getDate().toString();
-        month = (date.getMonth() + 1).toString();
-        year = date.getFullYear().toString();
-        document.getElementById(
-          'hw-viewer-value'
-        ).innerHTML += `<li>${name} - (${day}/${month}/${year})&nbsp;<a type="button" style="color:red !important;" onClick="removeHw('${name}')">X</a></li>`;
-        document.getElementById('hw-value').value = '';
-        document.getElementById('hw-date').value = `${year}-${month}-${day}`;
-      });
+      document.getElementById('hw-value').value = '';
+      var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+      var day = currentDate.getDate().toString();
+      var month = (currentDate.getMonth() + 1).toString();
+      var year = currentDate.getFullYear().toString();
+
+      if (month.length === 1) {
+        month = '0' + month;
+      }
+
+      if (day.length === 1) {
+        day = '0' + day;
+      }
+      document.getElementById('hw-date').value = year + '-' + month + '-' + day;
       fillHw();
     })
     .catch((err) => {

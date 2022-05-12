@@ -7,7 +7,7 @@ let theNamesOfTheDaysOfTheWeek = [
 ];
 
 let colors = [
-  '#6e2a2a',
+  '#4d5233',
   '#00497a',
   '#441769',
   '#175669',
@@ -15,6 +15,16 @@ let colors = [
   '#69171e',
   '#7e5a0c',
   '#6c9213',
+  '#754a6e',
+  '#325f69',
+  '#4d1c44',
+  '#302506',
+  '#a87667',
+  '#5d6911',
+  '#004a10',
+  '#363245',
+  '#316b3e',
+  '#6c4ced',
 ];
 let colorsIndex = 0;
 let subjectsToColors = {};
@@ -26,22 +36,24 @@ function reColorAll() {
   });
 }
 
+reColorAll();
 document.querySelectorAll('input').forEach((input) => {
   if (input.id === 'hw-value' || input.id === 'hw-date') return;
-  colorTable(input);
-  input.addEventListener('keyup', () => {
-    colorTable(input);
-    Object.keys(subjectsToColors).forEach((subject) => {
-      let contains = false;
-      document.querySelectorAll('input').forEach((input) => {
-        if (input.value === subject) {
-          contains = true;
+  input.addEventListener('keydown', () => {
+    setTimeout(() => {
+      reColorAll();
+      Object.keys(subjectsToColors).forEach((subject) => {
+        let contains = false;
+        document.querySelectorAll('input').forEach((input) => {
+          if (input.value === subject) {
+            contains = true;
+          }
+        });
+        if (!contains) {
+          delete subjectsToColors[subject];
         }
       });
-      if (!contains) {
-        delete subjectsToColors[subject];
-      }
-    });
+    }, 1);
   });
 });
 
