@@ -15,6 +15,10 @@ function fillHw() {
     .then((user) => {
       document.getElementById('locker-viewer').hidden = true;
       document.getElementById('locker-value').innerHTML = '';
+      if (user === { message: 'Incorrect sid' }) {
+        localStorage.removeItem('sid');
+        window.location.href = '/';
+      }
       const data = user.homework;
       if (data[0] === undefined) {
         document.getElementById('hw-viewer').hidden = true;
