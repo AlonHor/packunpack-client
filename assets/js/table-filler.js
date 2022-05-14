@@ -79,10 +79,10 @@ document.querySelectorAll('input[type=text]').forEach((input) => {
   input.value = '';
 });
 
-if (localStorage.getItem('prefiller')) {
-  const prefiller = JSON.parse(localStorage.getItem('prefiller'));
+if (sessionStorage.getItem('prefiller')) {
+  const prefiller = JSON.parse(sessionStorage.getItem('prefiller'));
   console.log(prefiller);
-  localStorage.removeItem('prefiller');
+  sessionStorage.removeItem('prefiller');
   const prefillerData = prefiller.table;
   console.log(prefiller);
   if (prefiller.type === 'sunday') {

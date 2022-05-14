@@ -23,7 +23,7 @@ if (tableId) {
         if (res.table.length === 6) {
           type = 'sunday';
         }
-        localStorage.setItem(
+        sessionStorage.setItem(
           'prefiller',
           JSON.stringify({ table: res.table, type: type })
         );
