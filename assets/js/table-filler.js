@@ -140,6 +140,10 @@ fetch(`${server}/sid/${sid}`, {
       tableData = res.table;
       if (tableData) {
         if (res.type) {
+          if (res.editAccess) {
+            document.getElementById('share-button').hidden = true;
+            document.getElementById('save-button').disabled = true;
+          }
           if (res.type === 'sunday') {
             dayCount = 6;
             for (let i = 1; i <= 11; i += 1) {

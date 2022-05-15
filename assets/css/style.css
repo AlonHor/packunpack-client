@@ -49,7 +49,7 @@
 }
 
 .btn-success:disabled {
-  cursor: not-allowed;
+  cursor: not-allowed !important;
 }
 
 .logout {
