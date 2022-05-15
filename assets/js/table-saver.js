@@ -78,6 +78,7 @@ saveButton.addEventListener('click', () => {
               if (res.message === 'Successfully updated table') {
                 saveButton.disabled = true;
                 saveButton.innerHTML = 'Saved';
+                document.getElementById('share-button').hidden = false;
                 generateDelta();
                 setTimeout(() => {
                   saveButton.innerHTML = 'Save';
@@ -89,7 +90,8 @@ saveButton.addEventListener('click', () => {
               } else if (
                 res.message == 'You do not have access to edit this table'
               ) {
-                alert(res.message);
+                document.getElementById('share-button').hidden = true;
+                saveButton.disabled = true;
               } else {
                 throw new Error('Failed to login: ' + err.message);
               }

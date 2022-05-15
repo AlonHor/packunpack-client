@@ -1,5 +1,5 @@
 function redirectToDashboard() {
-  localStorage.setItem('sid', '4c2aa467-e3cc-436e-afdb-5ad8a46a8b74'); // hardcoded sid for google adsense.
+  localStorage.setItem('sid', '1149a53e-9e8c-4d96-bd7b-8b3d5bb0d67a'); // hardcoded sid for google adsense.
   window.location.href = '/dashboard';
 }
 
