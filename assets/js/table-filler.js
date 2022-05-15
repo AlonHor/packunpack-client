@@ -140,7 +140,7 @@ fetch(`${server}/sid/${sid}`, {
       tableData = res.table;
       if (tableData) {
         if (res.type) {
-          if (res.editAccess) {
+          if (!res.editAccess) {
             document.getElementById('share-button').hidden = true;
             document.getElementById('save-button').disabled = true;
           }
