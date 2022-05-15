@@ -48,6 +48,10 @@
   border-color: #006321 !important;
 }
 
+.btn-success:disabled {
+  cursor: not-allowed;
+}
+
 .logout {
   position: fixed;
   top: 0;

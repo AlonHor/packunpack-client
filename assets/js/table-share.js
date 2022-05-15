@@ -31,11 +31,6 @@ shareButton.addEventListener('click', () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            sid: sid,
-            table: tableData,
-            type: type,
-          }),
         })
           .then((res) => {
             stopLoader();

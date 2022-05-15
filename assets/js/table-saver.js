@@ -67,7 +67,7 @@ saveButton.addEventListener('click', () => {
         })
           .then((res) => {
             stopLoader();
-            if (res.status === 200) {
+            if (res.status === 200 || res.status === 403) {
               return res.json();
             } else {
               throw new Error('Failed to login');
@@ -75,7 +75,7 @@ saveButton.addEventListener('click', () => {
           })
           .then((res) => {
             if (res.message) {
-              if (res.message === 'success') {
+              if (res.message === 'Successfully updated table') {
                 saveButton.disabled = true;
                 saveButton.innerHTML = 'Saved';
                 generateDelta();
@@ -86,6 +86,10 @@ saveButton.addEventListener('click', () => {
               } else if (res.message == 'Incorrect sid') {
                 localStorage.removeItem('sid');
                 window.location.href = '../';
+              } else if (
+                res.message == 'You do not have access to edit this table'
+              ) {
+                alert(res.message);
               } else {
                 throw new Error('Failed to login: ' + err.message);
               }

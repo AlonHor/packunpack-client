@@ -2,13 +2,20 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
 
+if (!sid) {
+  window.location.href = `/`;
+}
+
 const tableId = params.id;
 if (tableId) {
   fetch(`${server}/table/${tableId}`, {
-    method: 'GET',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
+    body: JSON.stringify({
+      sid: sid,
+    }),
   })
     .then((res) => {
       if (res.status === 200) {
