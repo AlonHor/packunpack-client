@@ -86,7 +86,7 @@ ul {
   }
 }
 
-/* make table head names be the same width, which is 10 characters */
-th {
-  min-width: 60px;
+/* make table head names be the same width as the longest value in their column */
+table {
+  table-layout: fixed;
 }
