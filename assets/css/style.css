@@ -85,3 +85,8 @@ ul {
     -webkit-overflow-scrolling: touch;
   }
 }
+
+/* make table head names be the same width, which is 10 characters */
+th {
+  width: 10ch;
+}
