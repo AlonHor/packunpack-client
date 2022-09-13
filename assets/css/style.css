@@ -92,10 +92,6 @@ ul {
 /* } */
 
 /* make specifically the first column of the schedule table to be 2 characters wide */
-/* td:nth-child(1) { */
-/*   width: 2ch; */
-/* } */
-
-/* td { */
-/*   width: 60px; */
-/* } */
+th.day-head {
+  min-width: 60px;
+}
