@@ -1,0 +1,28 @@
+{
+  "name": "PackUnpack",
+  "short_name": "PackUnpack",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#1c1c1c",
+  "theme_color": "#1c1c1c",
+  "orientation": "portrait-primary",
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "icons": [
+    {
+      "src": "/assets/img/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/assets/img/512x.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/assets/img/1080x.png",
+      "type": "image/png",
+      "sizes": "1080x1080"
+    }
+  ]
+}
