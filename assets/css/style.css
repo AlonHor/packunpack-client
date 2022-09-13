@@ -87,11 +87,15 @@ ul {
 }
 
 /* make table head names be the same width as the longest value in their column */
-table {
-  table-layout: fixed;
-}
+/* table { */
+/*   table-layout: fixed; */
+/* } */
 
 /* make specifically the first column of the schedule table to be 2 characters wide */
-td:nth-child(1) {
-  width: 2ch;
+/* td:nth-child(1) { */
+/*   width: 2ch; */
+/* } */
+
+td {
+  width: 60px;
 }
