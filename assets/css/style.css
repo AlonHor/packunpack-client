@@ -93,5 +93,6 @@ ul {
 
 /* make specifically the first column of the schedule table to be 2 characters wide */
 th.day-head {
-  min-width: 60px;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
