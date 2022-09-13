@@ -94,6 +94,11 @@ table{
   -webkit-overflow-scrolling: touch;
 }
 
+/* enable chrome dark mode */
+:root {
+  color-scheme: dark;
+}
+
 /* make table head names be the same width as the longest value in their column */
 /* table { */
 /*   table-layout: fixed; */
