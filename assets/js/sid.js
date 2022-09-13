@@ -1,5 +1,5 @@
 if (sid) {
-  window.location.href = '/dashboard';
+  window.location.href = "/dashboard";
 } else {
-  window.location.href = '/login';
+  window.location.href = "/login";
 }

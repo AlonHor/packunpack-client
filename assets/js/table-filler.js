@@ -1,50 +1,50 @@
 let theNamesOfTheDaysOfTheWeek = [
-  'monday',
-  'tuesday',
-  'wednesday',
-  'thursday',
-  'friday',
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
 ];
 
 let colors = [
-  '#4d5233',
-  '#00497a',
-  '#441769',
-  '#175669',
-  '#17694a',
-  '#69171e',
-  '#7e5a0c',
-  '#6c9213',
-  '#754a6e',
-  '#325f69',
-  '#4d1c44',
-  '#302506',
-  '#a87667',
-  '#5d6911',
-  '#004a10',
-  '#363245',
-  '#316b3e',
-  '#6c4ced',
+  "#4d5233",
+  "#00497a",
+  "#441769",
+  "#175669",
+  "#17694a",
+  "#69171e",
+  "#7e5a0c",
+  "#6c9213",
+  "#754a6e",
+  "#325f69",
+  "#4d1c44",
+  "#302506",
+  "#a87667",
+  "#5d6911",
+  "#004a10",
+  "#363245",
+  "#316b3e",
+  "#6c4ced",
 ];
 let colorsIndex = 0;
 let subjectsToColors = {};
 
 function reColorAll() {
-  document.querySelectorAll('input').forEach((input) => {
-    if (input.id === 'hw-value' || input.id === 'hw-date') return;
+  document.querySelectorAll("input").forEach((input) => {
+    if (input.id === "hw-value" || input.id === "hw-date") return;
     colorTable(input);
   });
 }
 
 reColorAll();
-document.querySelectorAll('input').forEach((input) => {
-  if (input.id === 'hw-value' || input.id === 'hw-date') return;
-  input.addEventListener('keydown', () => {
+document.querySelectorAll("input").forEach((input) => {
+  if (input.id === "hw-value" || input.id === "hw-date") return;
+  input.addEventListener("keydown", () => {
     setTimeout(() => {
       reColorAll();
       Object.keys(subjectsToColors).forEach((subject) => {
         let contains = false;
-        document.querySelectorAll('input').forEach((input) => {
+        document.querySelectorAll("input").forEach((input) => {
           if (input.value === subject) {
             contains = true;
           }
@@ -59,8 +59,8 @@ document.querySelectorAll('input').forEach((input) => {
 
 function colorTable(input) {
   let subject = input.value;
-  if (subject === '') {
-    input.style = 'background-color: #2e2e2e !important';
+  if (subject === "") {
+    input.style = "background-color: #2e2e2e !important";
     return;
   }
   if (subject in subjectsToColors) {
@@ -75,35 +75,35 @@ function colorTable(input) {
   }
 }
 
-document.querySelectorAll('input[type=text]').forEach((input) => {
-  input.value = '';
+document.querySelectorAll("input[type=text]").forEach((input) => {
+  input.value = "";
 });
 
-if (sessionStorage.getItem('prefiller')) {
-  const prefiller = JSON.parse(sessionStorage.getItem('prefiller'));
+if (sessionStorage.getItem("prefiller")) {
+  const prefiller = JSON.parse(sessionStorage.getItem("prefiller"));
   console.log(prefiller);
-  sessionStorage.removeItem('prefiller');
+  sessionStorage.removeItem("prefiller");
   const prefillerData = prefiller.table;
   console.log(prefiller);
-  if (prefiller.type === 'sunday') {
+  if (prefiller.type === "sunday") {
     dayCount = 6;
     for (let i = 1; i <= 11; i += 1) {
       const elem = document.getElementById(`optionalSunday${i}`);
       elem.hidden = false;
       dayCount = 6;
       if (i > 2) {
-        elem.firstChild.value = '';
+        elem.firstChild.value = "";
       }
     }
     theNamesOfTheDaysOfTheWeek = [
-      'sunday',
-      'monday',
-      'tuesday',
-      'wednesday',
-      'thursday',
-      'friday',
+      "sunday",
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday",
     ];
-    document.getElementById('sunday-checkbox').checked = true;
+    document.getElementById("sunday-checkbox").checked = true;
   }
   prefillerData.forEach((dayOfTheWeek, indexOfTheDayOfTheWeek) => {
     // for each day
@@ -116,15 +116,15 @@ if (sessionStorage.getItem('prefiller')) {
     });
   });
   reColorAll();
-  document.getElementById('save-button').click();
+  document.getElementById("save-button").click();
 }
 
 let tableData;
 startLoader();
 fetch(`${server}/sid/${sid}`, {
-  method: 'POST',
+  method: "POST",
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
 })
   .then((res) => {
@@ -132,7 +132,7 @@ fetch(`${server}/sid/${sid}`, {
     if (res.status === 200) {
       return res.json();
     } else {
-      throw new Error('Failed to login');
+      throw new Error("Failed to login");
     }
   })
   .then((res) => {
@@ -141,30 +141,30 @@ fetch(`${server}/sid/${sid}`, {
       if (tableData) {
         if (res.type) {
           if (!res.editAccess) {
-            document.getElementById('share-button').hidden = true;
-            document.getElementById('save-button').disabled = true;
+            document.getElementById("share-button").hidden = true;
+            document.getElementById("save-button").disabled = true;
           }
-          if (res.type === 'sunday') {
+          if (res.type === "sunday") {
             dayCount = 6;
             for (let i = 1; i <= 11; i += 1) {
               const elem = document.getElementById(`optionalSunday${i}`);
               elem.hidden = false;
               dayCount = 6;
               if (i > 2) {
-                elem.firstChild.value = '';
+                elem.firstChild.value = "";
               }
             }
             theNamesOfTheDaysOfTheWeek = [
-              'sunday',
-              'monday',
-              'tuesday',
-              'wednesday',
-              'thursday',
-              'friday',
+              "sunday",
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday",
             ];
-            document.getElementById('sunday-checkbox').checked = true;
+            document.getElementById("sunday-checkbox").checked = true;
           } else {
-            document.getElementById('sunday-checkbox').checked = false;
+            document.getElementById("sunday-checkbox").checked = false;
             dayCount = 5;
             for (let i = 1; i <= 11; i += 1) {
               document.getElementById(`optionalSunday${i}`).hidden = true;
@@ -190,15 +190,13 @@ fetch(`${server}/sid/${sid}`, {
       generateDelta();
     } else {
       if (res.message) {
-        if (res.message == 'Incorrect sid') {
-          localStorage.removeItem('sid');
-          window.location.href = '../';
+        if (res.message == "Incorrect sid") {
+          localStorage.removeItem("sid");
+          window.location.href = "../";
         } else {
-          throw new Error('Failed to login: ' + err.message);
+          throw new Error("Failed to login: " + err.message);
         }
       }
     }
   })
-  .catch((err) => {
-    alert(err);
-  });
+  .catch(() => {});
