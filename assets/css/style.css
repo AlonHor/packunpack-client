@@ -70,7 +70,6 @@
 
 .form-control {
   background-color: #2e2e2e !important;
-  /* make width be the same as the text inside of it */
   width: auto !important;
 }
 
@@ -79,13 +78,20 @@ ul {
 }
 
 /* make schedule table be responsible for mobile */
-@media (max-width: 768px) {
-  table{
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+/* @media (max-width: 768px) { */
+/*   table{ */
+/*     display: block; */
+/*     width: 100%; */
+/*     overflow-x: auto; */
+/*     -webkit-overflow-scrolling: touch; */
+/*   } */
+/* } */
+
+table{
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* make table head names be the same width as the longest value in their column */
@@ -94,7 +100,7 @@ ul {
 /* } */
 
 /* make specifically the first column of the schedule table to be 2 characters wide */
-.day-head {
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
+/* .day-head { */
+/*   padding-right: 1rem; */
+/*   padding-left: 1rem; */
+/* } */
