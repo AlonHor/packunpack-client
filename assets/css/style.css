@@ -70,6 +70,8 @@
 
 .form-control {
   background-color: #2e2e2e !important;
+  /* make width be the same as the text inside of it */
+  width: auto !important;
 }
 
 ul {
