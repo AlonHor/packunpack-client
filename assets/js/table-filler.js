@@ -123,7 +123,7 @@ if (sessionStorage.getItem("prefiller")) {
 function highlightToday() {
   let today = new Date();
   let day = today.getDay();
-  let dayName = theNamesOfTheDaysOfTheWeek[day];
+  let dayName = theNamesOfTheDaysOfTheWeek[day - 1];
   let dayNameCapitalized = dayName.charAt(0).toUpperCase() + dayName.slice(1);
   dayNameCapitalized =
     dayNameCapitalized === "Sunday" ? "optionalSunday1" : dayNameCapitalized;
