@@ -93,7 +93,7 @@ saveButton.addEventListener("click", () => {
               ) {
                 document.getElementById("share-button").hidden = true;
                 saveButton.disabled = true;
-                requestEditAccessButton = document.getElementById(
+                const requestEditAccessButton = document.getElementById(
                   "request-edit-access-button"
                 );
                 requestEditAccessButton.hidden = false;
