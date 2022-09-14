@@ -30,6 +30,7 @@ let colorsIndex = 0;
 let subjectsToColors = {};
 
 function reColorAll() {
+  colorsIndex = 0;
   document.querySelectorAll("input").forEach((input) => {
     if (input.id === "hw-value" || input.id === "hw-date") return;
     colorTable(input);
@@ -118,6 +119,19 @@ if (sessionStorage.getItem("prefiller")) {
   reColorAll();
   document.getElementById("save-button").click();
 }
+
+function highlightToday() {
+  let today = new Date();
+  let day = today.getDay();
+  let dayName = theNamesOfTheDaysOfTheWeek[day];
+  let dayNameCapitalized = dayName.charAt(0).toUpperCase() + dayName.slice(1);
+  dayNameCapitalized =
+    dayNameCapitalized === "Sunday" ? "optionalSunday1" : dayNameCapitalized;
+  let todayElement = document.getElementById(dayNameCapitalized);
+  todayElement.style = "background-color: #2e2e2e !important";
+}
+
+highlightToday();
 
 let tableData;
 startLoader();
