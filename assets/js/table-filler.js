@@ -174,6 +174,8 @@ fetch(`${server}/sid/${sid}`, {
                 .then((res) => {
                   if (res.status === 200) {
                     return res.json();
+                  } else {
+                    throw new Error(res.json().message);
                   }
                 })
                 .then((res) => {
@@ -185,6 +187,9 @@ fetch(`${server}/sid/${sid}`, {
                       requestEditAccessButton.disabled = false;
                     }, 2000);
                   }
+                })
+                .catch((err) => {
+                  alert(err.message);
                 });
             });
           }
