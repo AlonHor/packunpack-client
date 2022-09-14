@@ -157,6 +157,36 @@ fetch(`${server}/sid/${sid}`, {
           if (!res.editAccess) {
             document.getElementById("share-button").hidden = true;
             document.getElementById("save-button").disabled = true;
+            const requestEditAccessButton = document.getElementById(
+              "request-edit-access-button"
+            );
+            requestEditAccessButton.hidden = false;
+            requestEditAccessButton.addEventListener("click", () => {
+              fetch(`${server}/request-edit-access`, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  sid: sid,
+                }),
+              })
+                .then((res) => {
+                  if (res.status === 200) {
+                    return res.json();
+                  }
+                })
+                .then((res) => {
+                  if (res.message === "Successfully requested edit access") {
+                    requestEditAccessButton.innerHTML = "Requested";
+                    requestEditAccessButton.disabled = true;
+                    setTimeout(() => {
+                      requestEditAccessButton.innerHTML = "Request edit access";
+                      requestEditAccessButton.disabled = false;
+                    }, 2000);
+                  }
+                });
+            });
           }
           if (res.type === "sunday") {
             dayCount = 6;
