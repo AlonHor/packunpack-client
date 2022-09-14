@@ -1,6 +1,6 @@
 const key = new URLSearchParams(window.location.search).get("key");
 
-fetch(`${server}/table/accept-edit-access`, {
+fetch(`${server}/accept-edit-access`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",

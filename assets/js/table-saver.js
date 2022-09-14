@@ -98,7 +98,7 @@ saveButton.addEventListener("click", () => {
                 );
                 requestEditAccessButton.hidden = false;
                 requestEditAccessButton.addEventListener("click", () => {
-                  fetch(`${server}/table/request-edit-access`, {
+                  fetch(`${server}/request-edit-access`, {
                     method: "POST",
                     headers: {
                       "Content-Type": "application/json",
