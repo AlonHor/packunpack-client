@@ -48,6 +48,7 @@
 
     <!-- own scripts -->
     <script src="../assets/js/server.js"></script>
+    <script src="../assets/js/animation.js"></script>
 
     <!-- AdSense -->
     <!-- <script -->
@@ -360,33 +361,42 @@
             </button>
           </div>
           <!-- delta -->
-          <div class="delta-div" id="delta-div" hidden>
-            <span id="remove-text">Remove from bag:</span><br />
-            <span id="remove-value"></span><br /><br />
-            <span id="add-text">Add to bag:</span><br />
-            <span id="add-value"></span>
-          </div>
+          <section class="hidden">
+            <div class="delta-div" id="delta-div" hidden>
+              <span id="remove-text">Remove from bag:</span><br />
+              <span id="remove-value"></span><br /><br />
+              <span id="add-text">Add to bag:</span><br />
+              <span id="add-value"></span>
+            </div>
+          </section>
           <!-- hw viewer -->
-          <div class="hw-div" id="hw-viewer" hidden>
-            <span>Homework:</span><br />
-            <ul id="hw-viewer-value"></ul>
-          </div>
+          <section class="hidden">
+            <div class="hw-div" id="hw-viewer" hidden>
+              <span>Homework:</span><br />
+              <ul id="hw-viewer-value"></ul>
+            </div>
+          </section>
           <!-- locker viewer -->
-          <div class="locker-div" id="locker-viewer" hidden>
-            <span>Don't forget to remove:</span><br />
-            <ul id="locker-value"></ul>
-            <span>From the locker!</span>
-          </div>
+          <section class="hidden">
+            <div class="locker-div" id="locker-viewer" hidden>
+              <span>Don't forget to remove:</span><br />
+              <ul id="locker-value"></ul>
+              <span>From the locker!</span>
+            </div>
+          </section>
+          <!-- locker viewer -->
           <!-- hw -->
-          <div class="hw-div">
-            <span>Homework:</span><br />
-            <input class="form-control" id="hw-value" /><br />
-            <span>Due:</span><br />
-            <input class="form-control" id="hw-date" type="date" min="" /><br />
-            <button type="button" class="btn btn-primary" id="hw-button">
-              Save
-            </button>
-          </div>
+          <section class="hidden">
+            <div class="hw-div">
+              <span>Homework:</span><br />
+              <input class="form-control" id="hw-value" /><br />
+              <span>Due:</span><br />
+              <input class="form-control" id="hw-date" type="date" min="" /><br />
+              <button type="button" class="btn btn-primary" id="hw-button">
+                Save
+              </button>
+            </div>
+          </section>
         </div>
       </div>
       <!-- <script -->
