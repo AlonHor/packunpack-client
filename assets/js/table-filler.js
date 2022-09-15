@@ -30,7 +30,6 @@ let colorsIndex = 0;
 let subjectsToColors = {};
 
 function reColorAll() {
-  colorsIndex = 0;
   document.querySelectorAll("input").forEach((input) => {
     if (input.id === "hw-value" || input.id === "hw-date") return;
     colorTable(input);
