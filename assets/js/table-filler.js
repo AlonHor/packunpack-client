@@ -129,8 +129,10 @@ function highlightToday() {
   let dayNameCapitalized = dayName.charAt(0).toUpperCase() + dayName.slice(1);
   dayNameCapitalized =
     dayNameCapitalized === "Sunday" ? "optionalSunday1" : dayNameCapitalized;
-  let todayElement = document.getElementById(dayNameCapitalized);
-  todayElement.style = "background-color: #2e2e2e !important";
+  if (dayNameCapitalized !== "Saturday") {
+    let todayElement = document.getElementById(dayNameCapitalized);
+    todayElement.style = "background-color: #2e2e2e !important";
+  }
 }
 
 highlightToday();
