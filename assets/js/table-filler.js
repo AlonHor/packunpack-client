@@ -4,6 +4,8 @@ let theNamesOfTheDaysOfTheWeek = [
   "wednesday",
   "thursday",
   "friday",
+  "saturday",
+  "sunday",
 ];
 
 let colors = [
@@ -102,6 +104,7 @@ if (sessionStorage.getItem("prefiller")) {
       "wednesday",
       "thursday",
       "friday",
+      "saturday",
     ];
     document.getElementById("sunday-checkbox").checked = true;
   }
@@ -209,6 +212,7 @@ fetch(`${server}/sid/${sid}`, {
               "wednesday",
               "thursday",
               "friday",
+              "saturday",
             ];
             document.getElementById("sunday-checkbox").checked = true;
           } else {

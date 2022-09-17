@@ -4,6 +4,7 @@ const shareDiv = document.getElementById("share-div");
 const copyButton = document.getElementById("copy-button");
 
 shareButton.addEventListener("click", () => {
+  // used in another file
   let type = "monday";
   if (document.getElementById("sunday-checkbox").checked) {
     type = "sunday";
@@ -23,6 +24,7 @@ shareButton.addEventListener("click", () => {
     })
     .then((res) => {
       const id = res.id;
+      // used in another file
       const tableData = saveTableData();
       startLoader();
       if (id) {
@@ -50,6 +52,7 @@ shareButton.addEventListener("click", () => {
                 el.value = shareLink.innerHTML;
                 document.body.appendChild(el);
                 el.select();
+                // deprecated
                 document.execCommand("copy");
                 document.body.removeChild(el);
                 copyButton.innerHTML = "Copied";
