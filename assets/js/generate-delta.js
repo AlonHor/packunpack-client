@@ -2,7 +2,7 @@ function generateDelta() {
   const table = saveTableData();
   const today = new Date();
   const tomorrow = new Date();
-  const sunday = document.getElementById('sunday-checkbox').checked;
+  const sunday = document.getElementById("sunday-checkbox").checked;
   tomorrow.setDate(today.getDate() + 1);
   let todayDay = today.getDay();
   let tomorrowDay = tomorrow.getDay();
@@ -46,15 +46,15 @@ function generateDelta() {
   );
 
   if (addToBag.size === 0 && removeFromBag.size === 0) {
-    document.getElementById('delta-div').hidden = true;
+    document.getElementById("delta-div").hidden = true;
   } else {
-    document.getElementById('delta-div').hidden = false;
+    document.getElementById("delta-div").hidden = false;
   }
 
-  document.getElementById('remove-value').innerHTML = [...removeFromBag].join(
-    ', '
+  document.getElementById("remove-value").innerHTML = [...removeFromBag].join(
+    ", "
   );
-  document.getElementById('add-value').innerHTML = [...addToBag].join(', ');
+  document.getElementById("add-value").innerHTML = [...addToBag].join(", ");
 }
 
 window.onload = () => {

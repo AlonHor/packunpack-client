@@ -1,8 +1,8 @@
 function removeHw(hw) {
   fetch(`${server}/homework`, {
-    method: 'DELETE',
+    method: "DELETE",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       sid: sid,
@@ -13,7 +13,7 @@ function removeHw(hw) {
       if (res.status === 200) {
         return res.json();
       }
-      throw new Error('Failed to remove homework');
+      throw new Error("Failed to remove homework");
     })
     .then((data) => {
       fillHw();
