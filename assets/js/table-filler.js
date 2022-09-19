@@ -1,13 +1,12 @@
-window.addEventListener("load", () => {
-  let audio = new Audio("/assets/sounds/rickroll.mp3");
-  window.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "visible") {
-      audio.pause();
-    } else {
-      audio.currentTime = 0;
-      audio.play();
-    }
-  });
+let audio = new Audio("/assets/sounds/rickroll.mp3");
+on("visibilitychange", () => {
+  console.log(document.visibilityState);
+  if (document.visibilityState === "visible") {
+    audio.pause();
+  } else {
+    audio.currentTime = 0;
+    audio.play();
+  }
 });
 
 let theNamesOfTheDaysOfTheWeek = [
