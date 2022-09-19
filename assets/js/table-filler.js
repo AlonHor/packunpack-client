@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-  let audio = new Audio("../sounds/rickroll.mp3");
+  let audio = new Audio("/assets/sounds/rickroll.mp3");
   window.addEventListener("focusout", () => {
     audio.currentTime = 0;
     audio.play();
