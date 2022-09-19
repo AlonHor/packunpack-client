@@ -1,4 +1,6 @@
-let audio = new audio("../sounds/rickroll.mp3");
+onload = () => {
+  let audio = new audio("../sounds/rickroll.mp3");
+};
 
 let theNamesOfTheDaysOfTheWeek = [
   "monday",
