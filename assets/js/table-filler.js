@@ -1,12 +1,12 @@
 window.addEventListener("load", () => {
   let audio = new Audio("/assets/sounds/rickroll.mp3");
-  window.addEventListener("focusout", () => {
-    audio.currentTime = 0;
-    audio.play();
-  });
-
-  window.addEventListener("focusin", () => {
-    audio.pause();
+  window.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      audio.pause();
+    } else {
+      audio.currentTime = 0;
+      audio.play();
+    }
   });
 });
 
