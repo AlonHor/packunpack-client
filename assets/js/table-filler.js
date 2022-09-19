@@ -1,6 +1,14 @@
-onload = () => {
+window.addEventListener("load", () => {
   let audio = new audio("../sounds/rickroll.mp3");
-};
+  window.addEventListener("focusout", () => {
+    audio.currentTime = 0;
+    audio.play();
+  });
+
+  window.addEventListener("focusin", () => {
+    audio.pause();
+  });
+});
 
 let theNamesOfTheDaysOfTheWeek = [
   "monday",
@@ -260,12 +268,3 @@ fetch(`${server}/sid/${sid}`, {
     }
   })
   .catch(() => {});
-
-window.addEventListener("focusout", () => {
-  audio.currentTime = 0;
-  audio.play();
-});
-
-window.addEventListener("focusin", () => {
-  audio.pause();
-});
