@@ -1,5 +1,5 @@
-const staticCache = "dev-coffee-site-v1";
-const assets = ["/assets/img/favicon.ico"];
+const staticCache = "packunpack-cache";
+const assets = ["/favicon.ico"];
 
 self.addEventListener("install", (installEvent) => {
   installEvent.waitUntil(
