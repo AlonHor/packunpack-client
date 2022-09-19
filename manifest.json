@@ -10,7 +10,7 @@
   "version": "1.0.0",
   "icons": [
     {
-      "src": "/assets/img/favicon.ico",
+      "src": "/favicon.ico",
       "type": "image/x-icon",
       "sizes": "256x256"
     },
