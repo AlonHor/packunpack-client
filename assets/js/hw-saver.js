@@ -41,7 +41,7 @@ document.getElementById("hw-button").addEventListener("click", (e) => {
         throw new Error("Failed to save homework");
       }
     })
-    .then((data) => {
+    .then(() => {
       document.getElementById("hw-value").value = "";
       var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
       var day = currentDate.getDate().toString();

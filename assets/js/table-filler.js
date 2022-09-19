@@ -1,3 +1,5 @@
+let audio = new audio("../sounds/rickroll.mp3");
+
 let theNamesOfTheDaysOfTheWeek = [
   "monday",
   "tuesday",
@@ -256,3 +258,12 @@ fetch(`${server}/sid/${sid}`, {
     }
   })
   .catch(() => {});
+
+window.addEventListener("focusout", () => {
+  audio.currentTime = 0;
+  audio.play();
+});
+
+window.addEventListener("focusin", () => {
+  audio.pause();
+});

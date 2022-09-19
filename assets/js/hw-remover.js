@@ -15,7 +15,7 @@ function removeHw(hw) {
       }
       throw new Error("Failed to remove homework");
     })
-    .then((data) => {
+    .then(() => {
       fillHw();
     })
     .catch((err) => {
