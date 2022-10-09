@@ -1,4 +1,4 @@
-# [PackUnpack](https://packunpack.netlify.app)
+# [PackUnpack](https://packunpack.info)
 
 PackUnpack - The #1 (and only) app for tracking the delta when oragnizing bag, homework tracker, and locker reminder.
 
@@ -59,7 +59,7 @@ Suggestions are welcome.
 
 > MIT License
 >
-> Copyright © 2022 Alon Horesh
+> Copyright © 2022 Alon H.
 >
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 > of this software and associated documentation files (the "Software"), to deal
